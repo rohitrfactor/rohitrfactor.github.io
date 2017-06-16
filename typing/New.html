@@ -15,57 +15,10 @@
 <script>
 window.onload=function() {
 	// Get the Object by ID
-	var a = document.getElementById("keyboardHolder");
-	// Get the SVG document inside the Object tag
-	var svgDoc = a.contentDocument;
-	// Get one of the SVG items by ID;
-	var svgItem = svgDoc.getElementById("tilda");
-	// Set the colour to something else
-  svgItem.style.fill = 'salmon';
+
 	//svgItem.setAttribute("fill", "lime");
 };
 $(document).ready(function(){
-
-  // Get the Object by ID
-	var a = document.getElementById("keyboardHolder");
-  console.log(a.contentDocument.getElementById('tilda'));
-  a.addEventListener('SVGLoad', function() {
-  // all SVG loaded and rendered
-  console.log('ready');
-}, false);
-	// Get the SVG document inside the Object tag
-	//var svgDoc = a.contentDocument;
-	// Get one of the SVG items by ID;
-  //console.log(a);
-	//var svgItem = svgDoc.getElementById("tilda");
-	// Set the colour to something else
-  //console.log(svgItem);
-  //svgItem.style.fill = "salmon";
-	//svgItem.setAttribute("fill", "lime");
-
-        var Hands = {
-        Lhandreset : function(){
-          var lhand = document.getElementById('lhand');
-          lhand.style.margin = "0px 0px 0px 1635px";
-        },
-        Rhandreset : function(){
-          var rhand = document.getElementById('rhand');
-          rhand.style.margin = "0px 0px 0px -135px";
-        },
-        moveLhand : function(x){
-          var lhand = document.getElementById('lhand');
-          lhand.style.margin = x;
-        },
-        moveRhand : function(x){
-          var lhand = document.getElementById('rhand');
-          lhand.style.margin = x;
-        },
-        RhandShift : function(){
-          var rhand = document.getElementById('rhand');
-          rhand.style.margin = "-1380px 0px 0px -4565px";
-        }
-      };
-
       var keyMap ={
 200: {
       "id":"capslock",
@@ -334,6 +287,33 @@ $(document).ready(function(){
 }
 };
 
+var Hands = {
+Lhandreset : function(){
+  var lhand = document.getElementById('lhand');
+  lhand.style.margin = "0px 0px 0px 1635px";
+},
+Rhandreset : function(){
+  var rhand = document.getElementById('rhand');
+  rhand.style.margin = "0px 0px 0px -135px";
+},
+moveLhand : function(x){
+  var lhand = document.getElementById('lhand');
+  lhand.style.margin = x;
+},
+moveRhand : function(x){
+  var lhand = document.getElementById('rhand');
+  lhand.style.margin = x;
+},
+RhandShift : function(){
+  var rhand = document.getElementById('rhand');
+  rhand.style.margin = "-1380px 0px 0px -4565px";
+}
+};
+
+var keyboardHolder = document.getElementById("keyboardHolder");
+// Get the SVG document inside the Object tag
+var svgDoc = keyboardHolder.contentDocument;
+
 
   document.addEventListener('keydown', function(e) {
     console.log('You just pressed a key '+e.keyCode+e.location);
@@ -343,19 +323,21 @@ $(document).ready(function(){
       console.log(x + ' value ');
       if(keyMap[x].hand == "left"){
           Hands.moveLhand(keyMap[x].margin);
-          //document.getElementById(keyMap[x].id).style.fill = 'blue';
+          svgDoc.getElementById(keyMap[x].id).style.fill = 'blue';
       }
       if(keyMap[x].hand == "right"){
           Hands.moveRhand(keyMap[x].margin);
-          //document.getElementById(keyMap[x].id).style.fill = 'blue';
+          svgDoc.getElementById(keyMap[x].id).style.fill = 'blue';
       }
  });
 
 
+ // Get one of the SVG items by ID;
+ //var svgItem = svgDoc.getElementById("tilda");
+ // Set the colour to something else
+ //svgItem.style.fill = 'salmon';
 
-    //$("a").css("fill","salmon");
 
-    //document.getElementById('a').style.fill = 'salmon';
 });
 
 </script>
