@@ -307,7 +307,12 @@ RhandShift : function(){
 
 var keyboardHolder = document.getElementById("keyboardHolder");
 // Get the SVG document inside the Object tag
-var svgDoc = keyboardHolder.contentDocument;
+svgDoc = keyboardHolder.contentDocument;
+
+// Get one of the SVG items by ID;
+var svgItem = svgDoc.getElementById("tilda");
+// Set the colour to something else
+svgItem.style.fill = 'salmon';
 
   document.addEventListener('keydown', function(e) {
     console.log('You just pressed a key '+e.keyCode+e.location);
