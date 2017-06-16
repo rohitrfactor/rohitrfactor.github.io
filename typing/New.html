@@ -308,24 +308,24 @@ RhandShift : function(){
 var keyboardHolder = document.getElementById("keyboardHolder");
 // Get the SVG document inside the Object tag
 svgDoc = keyboardHolder.contentDocument;
-prev = svgDoc.getElementById('tila');
+//prev = svgDoc.getElementById('tila');
 
   document.addEventListener('keydown', function(e) {
     console.log('You just pressed a key '+e.keyCode+e.location);
       Hands.Rhandreset();
       Hands.Lhandreset();
-      prev.style.fill = 'white';
+      //prev.style.fill = 'white';
       var x = e.keyCode*10+e.location;
       console.log(x + ' value ');
       if(keyMap[x].hand == "left"){
           Hands.moveLhand(keyMap[x].margin);
           svgDoc.getElementById(keyMap[x].id).style.fill = '#79bbff';
-          prev = svgDoc.getElementById(keyMap[x].id);
+          //prev = svgDoc.getElementById(keyMap[x].id);
       }
       if(keyMap[x].hand == "right"){
           Hands.moveRhand(keyMap[x].margin);
           svgDoc.getElementById(keyMap[x].id).style.fill = '#79bbff';
-          prev = svgDoc.getElementById(keyMap[x].id);
+          //prev = svgDoc.getElementById(keyMap[x].id);
       }
  });
 
