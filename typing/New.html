@@ -308,7 +308,7 @@ RhandShift : function(){
 var keyboardHolder = document.getElementById("keyboardHolder");
 // Get the SVG document inside the Object tag
 svgDoc = keyboardHolder.contentDocument;
-
+prev = svgDoc.getElementById('tila');
 
   document.addEventListener('keydown', function(e) {
     console.log('You just pressed a key '+e.keyCode+e.location);
