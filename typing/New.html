@@ -13,12 +13,7 @@
 
 </body>
 <script>
-window.onload=function() {
-	// Get the Object by ID
-
-	//svgItem.setAttribute("fill", "lime");
-};
-$(document).ready(function(){
+window.onload = function(){
       var keyMap ={
 200: {
       "id":"capslock",
@@ -314,7 +309,6 @@ var keyboardHolder = document.getElementById("keyboardHolder");
 // Get the SVG document inside the Object tag
 var svgDoc = keyboardHolder.contentDocument;
 
-
   document.addEventListener('keydown', function(e) {
     console.log('You just pressed a key '+e.keyCode+e.location);
       Hands.Rhandreset();
@@ -338,7 +332,7 @@ var svgDoc = keyboardHolder.contentDocument;
  //svgItem.style.fill = 'salmon';
 
 
-});
+};
 
 </script>
 </html>
