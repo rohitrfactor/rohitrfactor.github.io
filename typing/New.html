@@ -14,6 +14,10 @@
 </body>
 <script>
 window.onload = function(){
+  var keyboardHolder = document.getElementById("keyboardHolder");
+  // Get the SVG document inside the Object tag
+  svgDoc = keyboardHolder.contentDocument;
+  prev = svgDoc.getElementById('tilda');
 var keyMap ={
       200: {
         "id":"capslock",
@@ -281,7 +285,24 @@ var keyMap ={
       "margin":"920px 0px 0px 1635px"
       }
   };
-
+var mapping = {
+  97:{
+    "code":"650",
+    "shift":"no"
+  },
+  65:{
+    "code":"650",
+    "shift":"yes"
+  },
+  98:{
+    "code":"660",
+    "shift":"no"
+  },
+  66:{
+    "code":"660",
+    "shift":"yes"
+  }
+};
 var Hands = {
 Lhandreset : function(){
   var lhand = document.getElementById('lhand');
@@ -302,13 +323,30 @@ moveRhand : function(x){
 RhandShift : function(){
   var rhand = document.getElementById('rhand');
   rhand.style.margin = "-1380px 0px 0px -4565px";
-},
-recommend : function(x){
-            Hands.Rhandreset();
-            Hands.Lhandreset();
 }
 };
-
+recommend = function(x){
+            console.log("keycode "+x.charCodeAt(0));
+            Hands.Rhandreset();
+            Hands.Lhandreset();
+            console.log(mapping[65].code);
+            if(keyMap[mapping[x.charCodeAt(0)].code].hand == "left"){
+                if(mapping[x.charCodeAt(0)].shift == "yes"){
+                    Hands.RhandShift();
+                }
+                Hands.moveLhand(keyMap[mapping[x.charCodeAt(0)].code].margin);
+                svgDoc.getElementById(keyMap[mapping[x.charCodeAt(0)].code].id).style.fill = '#0066ff';
+                prev = svgDoc.getElementById(keyMap[mapping[x.charCodeAt(0)].code].id);
+            }
+            if(keyMap[mapping[x.charCodeAt(0)].code].hand == "right"){
+              if(mapping[x.charCodeAt(0)].shift == "yes"){
+                  Hands.LhandShift();
+              }
+                Hands.moveRhand(keyMap[mapping[x.charCodeAt(0)].code].margin);
+                svgDoc.getElementById(keyMap[mapping[x.charCodeAt(0)].code].id).style.fill = '#0066ff';
+                prev = svgDoc.getElementById(keyMap[mapping[x.charCodeAt(0)].code].id);
+            }
+};
 
 var keyboardHolder = document.getElementById("keyboardHolder");
 // Get the SVG document inside the Object tag
@@ -316,7 +354,7 @@ svgDoc = keyboardHolder.contentDocument;
 prev = svgDoc.getElementById('tilda');
 
   document.addEventListener('keydown', function(e) {
-    console.log('You just pressed a key '+e.keyCode+' location'+e.location+' code '+e.which||e.keyCode);
+      console.log('You just pressed a key '+e.keyCode+' location'+e.location+' code '+e.which||e.keyCode);
       Hands.Rhandreset();
       Hands.Lhandreset();
       prev.style.fill = 'white';
@@ -334,6 +372,8 @@ prev = svgDoc.getElementById('tilda');
       }
  });
 };
+
+
 
 
 </script>
