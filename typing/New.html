@@ -316,7 +316,7 @@ svgDoc = keyboardHolder.contentDocument;
 prev = svgDoc.getElementById('tilda');
 
   document.addEventListener('keydown', function(e) {
-    console.log('You just pressed a key '+e.keyCode+' location'+e.location+' code '+e.which);
+    console.log('You just pressed a key '+e.keyCode+' location'+e.location+' code '+e.which||e.keyCode);
       Hands.Rhandreset();
       Hands.Lhandreset();
       prev.style.fill = 'white';
