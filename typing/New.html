@@ -301,15 +301,25 @@ var mapping = {
   66:{
     "code":"660",
     "shift":"yes"
+  },
+  99:{
+    "code":"670",
+    "shift":"no"
+  },
+  67:{
+    "code":"670",
+    "shift":"yes"
   }
 };
 var Hands = {
 Lhandreset : function(){
   var lhand = document.getElementById('lhand');
+  prev.style.fill = 'white';
   lhand.style.margin = "0px 0px 0px 1635px";
 },
 Rhandreset : function(){
   var rhand = document.getElementById('rhand');
+  prev.style.fill = 'white';
   rhand.style.margin = "0px 0px 0px -135px";
 },
 moveLhand : function(x){
@@ -335,7 +345,7 @@ recommend = function(x){
                     Hands.RhandShift();
                 }
                 Hands.moveLhand(keyMap[mapping[x.charCodeAt(0)].code].margin);
-                svgDoc.getElementById(keyMap[mapping[x.charCodeAt(0)].code].id).style.fill = '#0066ff';
+                svgDoc.getElementById(keyMap[mapping[x.charCodeAt(0)].code].id).style.fill = '#79bbff';
                 prev = svgDoc.getElementById(keyMap[mapping[x.charCodeAt(0)].code].id);
             }
             if(keyMap[mapping[x.charCodeAt(0)].code].hand == "right"){
@@ -343,7 +353,7 @@ recommend = function(x){
                   Hands.LhandShift();
               }
                 Hands.moveRhand(keyMap[mapping[x.charCodeAt(0)].code].margin);
-                svgDoc.getElementById(keyMap[mapping[x.charCodeAt(0)].code].id).style.fill = '#0066ff';
+                svgDoc.getElementById(keyMap[mapping[x.charCodeAt(0)].code].id).style.fill = '#79bbff';
                 prev = svgDoc.getElementById(keyMap[mapping[x.charCodeAt(0)].code].id);
             }
 };
@@ -362,12 +372,12 @@ prev = svgDoc.getElementById('tilda');
       console.log(x + ' value ');
       if(keyMap[x].hand == "left"){
           Hands.moveLhand(keyMap[x].margin);
-          svgDoc.getElementById(keyMap[x].id).style.fill = '#0066ff';
+          svgDoc.getElementById(keyMap[x].id).style.fill = '#79bbff';
           prev = svgDoc.getElementById(keyMap[x].id);
       }
       if(keyMap[x].hand == "right"){
           Hands.moveRhand(keyMap[x].margin);
-          svgDoc.getElementById(keyMap[x].id).style.fill = '#0066ff';
+          svgDoc.getElementById(keyMap[x].id).style.fill = '#79bbff';
           prev = svgDoc.getElementById(keyMap[x].id);
       }
  });
