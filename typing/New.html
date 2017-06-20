@@ -17,6 +17,8 @@ window.onload = function(){
   var keyboardHolder = document.getElementById("keyboardHolder");
   // Get the SVG document inside the Object tag
   svgDoc = keyboardHolder.contentDocument;
+  shiftLColor = svgDoc.getElementById('shift-left');
+  shiftRColor = svgDoc.getElementById('shift-right');
   prev = svgDoc.getElementById('tilda');
 var keyMap ={
       200: {
@@ -316,11 +318,14 @@ Lhandreset : function(){
   var lhand = document.getElementById('lhand');
   prev.style.fill = 'white';
   lhand.style.margin = "0px 0px 0px 1635px";
+  shiftLColor.style.fill = 'white';
 },
 Rhandreset : function(){
   var rhand = document.getElementById('rhand');
   prev.style.fill = 'white';
   rhand.style.margin = "0px 0px 0px -135px";
+  shiftRColor.style.fill = 'white';
+  shiftRColor.style.fill = '#79bbff';
 },
 moveLhand : function(x){
   var lhand = document.getElementById('lhand');
@@ -333,6 +338,7 @@ moveRhand : function(x){
 RhandShift : function(){
   var rhand = document.getElementById('rhand');
   rhand.style.margin = "-1380px 0px 0px -4565px";
+  shiftRColor.style.fill = '#79bbff';
 }
 };
 recommend = function(x){
