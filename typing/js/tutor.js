@@ -837,6 +837,7 @@ var Tutor = function() {
         // Select suffix string
         s = my.current.subunitText.substring(i + 1, endIndex)
         my.current.targetSuffix = Util.visual(s)
+        recommend(my.current.targetChar)
     }
 
 
@@ -848,7 +849,6 @@ var Tutor = function() {
         var targetChar = document.createTextNode(my.current.targetChar)
         targetCharElement.className = 'targetChar'
         targetCharElement.appendChild(targetChar)
-
         // Set new target text
         Util.setChildren(my.html.target, my.current.targetPrefix,
                                          targetCharElement,
