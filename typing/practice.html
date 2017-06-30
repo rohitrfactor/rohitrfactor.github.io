@@ -48,7 +48,10 @@
     <script src="js/settings.js"></script>
     <script src="js/tutor.js"></script>
     <script>
-    window.onload() = function(){
+    window.addEventListener('load',run);
+    run = function(){
+      console.log('Run function running');
+    };
       var keyboardHolder = document.getElementById("keyboardHolder");
       // Get the SVG document inside the Object tag
       svgDoc = keyboardHolder.contentDocument;
@@ -783,7 +786,6 @@
           }
      });
 
-   };
     // Log request
     if (typeof OnePixel == 'object' && typeof OnePixel.log == 'function') {
 
