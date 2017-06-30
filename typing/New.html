@@ -667,6 +667,10 @@ var mapping = {
   63:{
     "code":"1910",
     "shift":"yes"
+  },
+  32:{
+    "code":"320",
+    "shift":"no"
   }
 };
 var Hands = {
@@ -705,7 +709,6 @@ recommend = function(x){
             console.log("keycode "+x.charCodeAt(0));
             Hands.Rhandreset();
             Hands.Lhandreset();
-            console.log(mapping[65].code);
             if(keyMap[mapping[x.charCodeAt(0)].code].hand == "left"){
                 if(mapping[x.charCodeAt(0)].shift == "yes"){
                     Hands.RhandShift();
