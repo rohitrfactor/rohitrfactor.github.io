@@ -32,6 +32,7 @@
     <link href="css/creative.min.css" rel="stylesheet">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 
+
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/typing.css">
     <script src="js/util.js"></script>
@@ -124,21 +125,39 @@
         <div class="header-content">
             <div class="header-content-inner">
                 <h1 id="homeHeading">Practice Test</h1>
+
             </div>
         </div>
     </header>
-
-
-
-
     <!-- Main -->
     <div id="mainWrapper">
     <div id="main">
         <div id="content">
             <div id="practicePanelWrapper">
+            <div id="update" class="warning">
+                <p>
+                A new version of QuickQWERTY is available. You are using
+                <strong>QuickQWERTY&nbsp;<span id="thisVersion"></span></strong>.
+                The latest stable version of this application is
+                <strong>QuickQWERTY&nbsp;<span id="stableVersion"></span></strong>.
+                </p><p>
+                <a id="downloadUpdate" href="#">Download</a>
+                <a id="ignoreUpdate" href="#">Hide this message</a>
+                </p>
+            </div>
             <div id="practicePanel">
+                <div id="previousLink">
+                    <!--<a href="#previous">&laquo;</a>-->
+                </div>
+
                 <div id="practicePane">
+
+                    <div id="subunitLinks">
+                        <div class="stretch"></div>
+                    </div> <!-- End subunitLinks -->
+
                     <div id="target"></div>
+
                     <div id="feedbackPane">
                         <div id="statusPane">
                             <div id="status"></div>
@@ -167,8 +186,15 @@
                     <div id="inputPane">
                         <input id="input" autocomplete="off"
                                   spellcheck="false"></input>
+
+
                     </div> <!-- End inputPane -->
+
+                    <div id="alternateUnitLinks">
+                    </div>
+
                 </div> <!-- End practicePane -->
+
             </div> <!-- End practicePanel -->
 
             <div style="display: block; opacity: 1; top: 345px; width: 685px; margin-top: 100px;margin:auto">
@@ -179,9 +205,7 @@
                               <img id="rhand" src="right-hand-both.png" style="margin: 0px 0px 0px -135px; position: absolute; top: -2px; left: 140px; opacity: 0.4; transform: translate(0px, 0px);">
                       </div>
             </div>
-
         </div> <!-- End content -->
-
     </div> <!-- End main -->
     </div> <!-- End mainWrapper -->
 
