@@ -19,13 +19,13 @@ table {
 	width: 100%;
 }
 td {
-	width: 33%;
-	padding: 3px 4px;
-	border: 1px solid transparent;
+	width: 50%;
 	vertical-align: top;
 	font: 1em monospace;
 	text-align: left;
 	white-space: pre-wrap;
+	margin: 15px;
+	box-shadow: box-shadow:0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
 }
 h1 {
 	display: inline;
@@ -33,13 +33,15 @@ h1 {
 }
 del {
 	text-decoration: none;
-	color: #b30000;
-	background: #fadad7;
+	font-size: 25px;
+	color: #27c47c;
 }
 ins {
-	background: #eaf2c2;
-	color: #406619;
-	text-decoration: none;
+	background: #fadad7;
+	color: #000000;
+	text-decoration-line: #D32F2F;
+	text-decoration: line-through;
+	font-size: 30px
 }
 
 #settings {

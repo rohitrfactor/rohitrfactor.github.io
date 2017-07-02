@@ -824,7 +824,7 @@ var Tutor = function() {
 
         // Select prefix string
         var s = my.current.subunitText.substring(startIndex, i)
-        s = s.replace(/ /g, '\u00a0')
+        s = s.replace(/ /g, '\u00a0').replace(/\n/g, '\u23ce')
         my.current.targetPrefix = Util.visual(s)
 
         // Select target character
@@ -838,7 +838,7 @@ var Tutor = function() {
 
         // Select suffix string
         s = my.current.subunitText.substring(i + 1, endIndex)
-        s = s.replace(/ /g, '\u00a0')
+        s = s.replace(/ /g, '\u00a0').replace(/\n/g, '\u23ce')
         my.current.targetSuffix = Util.visual(s)
         //s = s.replace(/ /g,'\u00a0')
         recommend(my.current.targetChar)

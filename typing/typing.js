@@ -117,9 +117,12 @@ var presenter = {
 };
 var view = {
     init : function(){
-      $('#b').bind("cut copy paste",function(e) {
-           e.preventDefault();
-       });
+      $('#original').bind("cut copy paste",function(e) {
+       e.preventDefault();
+      });
+      $('#typing').bind("cut copy paste",function(e) {
+       e.preventDefault();
+      });
       var accuracyGaugeConfig = liquidFillGaugeDefaultSettings();
           accuracyGaugeConfig.circleColor = "#2E7D32";
           accuracyGaugeConfig.textColor = "#1B5E20";

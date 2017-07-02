@@ -54,11 +54,11 @@
     .button{
       background-color: transparent;
       box-shadow: inset 0 0 0 1px rgba(99, 116, 133, 0.25);
-      color: #637485 ;
+      color: #000000 ;
      -webkit-appearance: none;
      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    border-radius: 15px;
     border: 0;
+    border-color: #000000;
     display: inline-block;
     font-size: 0.8em;
     font-weight: 700;
@@ -71,11 +71,15 @@
     white-space: nowrap;
     padding-left: 10%;
     padding-right: 10%;
+    margin-right: 15px;
     }
 
     .button:hover {
         background-color: rgba(99, 116, 133, 0.075);
         cursor: pointer;
+    }
+    .button:focus {
+      outline:0;
     }
     .inside-module p
     {
@@ -92,9 +96,9 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" style="background-color:#D3D3D3">
 
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -132,18 +136,6 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-
-    <header>
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1 id="homeHeading">Passages</h1>
-  <!--              <h2></h2>
-                <hr>
-                <p></p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a> -->
-            </div>
-        </div>
-    </header>
 
 
   <div class="loading" id="loader">
@@ -183,342 +175,7 @@
 
 <section id="articles">
 
-
-
   <div id="passages"></div>
-
-<!--  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article> -->
-<!--  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module parallax">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module parallax2">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article>
-
-  <article class="module">
-    <div class="inside-module">
-      <div class="bar-full">
-        <span class="bar"></span>
-        <div class="bar-box">
-          <span class="bar-flip">Awesome Flip!</span>
-        </div>
-      </div>
-
-      <div class="pad">
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </div>
-    </div>
-
-  </article> -->
-
 
 </section>
 </div>
@@ -549,8 +206,7 @@
     <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
     <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
-    <!-- Theme JavaScript -->
-    <script src="js/creative.min.js"></script>
+
 
 </body>
 

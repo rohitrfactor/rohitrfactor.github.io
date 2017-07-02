@@ -48,9 +48,6 @@
     padding: 5px;
     text-decoration: none;
 }
-.practiceButton:focus {
-  outline:0;
-}
 
 .submitTestButton {
     font-family: 'Nunito', sans-serif;
@@ -62,18 +59,12 @@
     background-color: Transparent;
     padding: 5px;
 }
-.submitTestButton:focus{
-  outline:0;
-}
 
 .submitTestButton:hover {
     cursor: pointer;
     color: #FFF;
     background-color: #00BFA5;
     text-decoration: none;
-}
-.submitTestButton:focus{
-  outline:0;
 }
 
 .showhideButton {
@@ -85,9 +76,6 @@
     border-color: #00BFA5;
     background-color: Transparent;
     padding: 5px;
-}
-.showhideButton:focus{
-  outline:0;
 }
 
 .showhideButton:hover {
@@ -235,9 +223,9 @@
         </nav>
 
 
-        <div id="practice" style="width:100%;" >
+        <div id="practice" style="width:100%" >
         		  <div id="practice_data" style="margin-left:10px; margin-right:10px">
-                      <div class="navbar-fixed-top affix" style="margin-top:35px;">
+                      <div class="navbar-fixed-top affix" style="margin-top:35px">
 
 
                   					<div style="margin:50px">
@@ -248,9 +236,7 @@
                                        <center><button class="showhideButton" id="showhide">Show/Hide Passage</button> </center>
                                    </div>
                                     <div class="col-md-4">
-                                          <center><span class="starttypingtext">
-                                            Start Typing in the grey area</span>
-                                          </center>
+                                       
                                     </div>
                                   	<div class="col-md-4">
                                   					<center><button class="submitTestButton" id="submitTest" onclick="view.endTest()" disabled="true">
@@ -259,19 +245,17 @@
                                     </div>
                             </div>
                     </div>
-                      <div style ="margin-top:350px; position:fixed; overflow:hidden">
-                            <div style ="overflow-y:hidden; max-height:300px; padding:20px ">
-
-                            <table style="padding:10px; ">
+                            <table style="padding:10px; margin-top:350px">
                             					<tbody>
                                           <tr>
-                                							<td id="original" style="font-size:20px; text-align:justify; padding:10px; font-family:monospace; box-shadow:0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2)">Could not load the test passage. Please refresh your page.</td>
+                                							<td id="original" style="font-size:20px; text-align:justify; padding:10px; font-family:monospace; box-shadow:0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2)">Here the test would be shown</td>
+   <center><span class="starttypingtext">
+                                            Start Typing in the grey area</span>
+                                          </center>
                                 							<td contenteditable="true" id="typing" spellcheck="false" style="font-size:20px; text-align:justify; padding:10px; font-family:monospace; box-shadow:0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2)"></td>
                             					    </tr>
                             					</tbody>
                             </table>
-                            </div>
-                    </div>
               </div>
         </div>
         <div id="output" style="margin-top:70px">
@@ -341,3 +325,4 @@ function showPassages() {
 </script>
 <script src="typing.js">
 </script>
+

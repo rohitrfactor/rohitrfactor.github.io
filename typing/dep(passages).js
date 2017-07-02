@@ -1,19 +1,5 @@
 var model = {
       getAllPassages : function(){
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        myObj = JSON.parse(this.responseText);
-                        for(i=0; i < myObj.length;i++){
-                                console.log('Passage ' +myObj[i].Code)
-                                presenter.appendPassage(myObj[i]);
-                        }
-
-                    }
-                };
-                xmlhttp.open("GET", "passage.json", true);
-                xmlhttp.send();
-                  /*
                   var passagesQuery = firebase.database().ref('Passages');
                   passagesQuery.on('value',function(snapshot){
 
@@ -26,12 +12,11 @@ var model = {
                       console.log("error while fetching passages "+error);
                       presenter.fetchPassagesError(error);
                  });
-                */
             },
 
     isPaid : function(passageString,passageStringId,passageType){
                   if(passageType=="paid"){
-                        return true;
+                    return true;
                     }
                     else {
                       return false;
@@ -105,8 +90,7 @@ var presenter = {
                     console.log("passage type : "+passageType);
                     //model.isPaid(passageString,passageStringId,passageType);
                     if(model.isPaid(passageString,passageStringId,passageType)){
-                           //model.hasExpired(passageString,passageStringId,btnid);
-                           presenter.passageClicked(passageString,passageStringId,btnid);
+                          model.hasExpired(passageString,passageStringId,btnid);
                     }
                     else {
                            presenter.passageClicked(passageString,passageStringId,btnid);
@@ -128,25 +112,25 @@ var view = {
             presenter.fetchPassages();
     },
     appendPassage : function(passage){
-                    //console.log('Passage : '+passage.Code);
+                    console.log('Passage : '+passage.Code);
                     var div = document.createElement('article');
                     div.className = 'module';
                     var passageString = passage.PassageString;
                     var passageStringId = passage.Code;
                     var passageType = passage.type;
 
-                    var startButton = document.createElement('button');
+                        var startButton = document.createElement('button');
                     startButton.id = 'start';
                     startButton.className = 'button';
                     startButton.onclick = function() {view.createClickHandler(passageString,passageStringId,passageType,'start'); };
                     startButton.innerHTML ='Start Test';
-
+          
                     var practiceButton = document.createElement('button');
                     practiceButton.className = 'practice';
                     practiceButton.className = 'button';
                     practiceButton.onclick = function() {view.createClickHandler(passageString,passageStringId,passageType,'practice');};
                     practiceButton.innerHTML ='Practice';
-
+          
                     var padSpan = document.createElement('span');
                     padSpan.style.width = '40%';
                     padSpan.style.float = 'right';
@@ -156,29 +140,29 @@ var view = {
 
                     var para = document.createElement('p');
                     para.innerHTML = passageString;
-
+                    
                     var padDiv = document.createElement('div');
                     padDiv.className = 'pad';
-
+                    
                     padDiv.appendChild(para);
                     padDiv.appendChild(padSpan);
-
+          
                     var barFlipSpan = document.createElement('span');
                     barFlipSpan.className = 'bar-flip';
                     barFlipSpan.innerHTML = passageStringId;
-
+          
                     var barBoxDiv = document.createElement('div');
                     barBoxDiv.className = 'bar-box';
-
+                    
                     barBoxDiv.appendChild(barFlipSpan);
                     var barSpan = document.createElement('span');
                     barSpan.className = 'bar';
-
+                  
                     var barFullDiv = document.createElement('div');
                     barFullDiv.className = 'bar-full';
                     barFullDiv.appendChild(barSpan);
                     barFullDiv.appendChild(barBoxDiv);
-
+          
                     var insideDiv = document.createElement('div');
                     insideDiv.className = 'inside-module';
                     insideDiv.appendChild(barFullDiv);
@@ -254,7 +238,7 @@ var view = {
     }, */
     createClickHandler : function(passageString,passageStringId,passageType,btnid)
     {
-        //console.log('Passage clicked'+passageString);
+        console.log('Passage clicked'+passageString);
         presenter.isPaid(passageString,passageStringId,passageType,btnid);
     },
     setHeaderEmail : function(currentUser){
