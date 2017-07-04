@@ -1,152 +1,47 @@
 <!DOCTYPE html>
-<html>
+ <html lang="en">
+  <head>
+   <title>LogIn</title>
+   <meta charset="UTF-8">
+ </head>
+ <!-- Below is the initialization snippet for my Firebase project. It will vary for each project -->
+ <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+ <script>
+var config = {
+  apiKey: "AIzaSyBXmt_HuSOO7Nh62QgaSlguVIZLBaaEcPk",
+  authDomain: "typingtest-18077.firebaseapp.com",
+  databaseURL: "https://typingtest-18077.firebaseio.com",
+  storageBucket: "typingtest-18077.appspot.com",
+  messagingSenderId: "864003751108"
+};
 
-<head>
-<title>Typing Website</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/css?family=Nunito:700" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
-
-<style>
-input[type=email], input[type=password] {w
-    width: 50%;
-    font-family: 'Nunito', sans-serif;
-    color: #00BFA5;
-    border:2px solid;
-    font-size: 25px;
-    border-color: #00BFA5;
-    border-radius: 4px;
-    background-color: Transparent;
-    padding: 10px;
-}
-
-button {
-  font-family: 'Nunito', sans-serif;
-  color: #00BFA5;
-  border:2px solid;
-  font-size: 25px;
-  margin:30px;
-  border-color: #00BFA5;
-  background-color: Transparent;
-  padding: 5px;
-  padding-left: 25px;
-  padding-right: 25px;
-}
-button:hover{
-  cursor: pointer;
-  color: #FFF;
-  background-color: #00BFA5;
-}
-
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-}
-
-img.avatar {
-    width: 25%;
-    border-radius: 50%;
-}
-
-.container {
-    padding: 16px;
-}
-
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
-
-#loginError
-{
-  color: red;
-  font-size: 25px;
-  font-family: 'Nunito', sans-serif;
-  background-color: Transparent;
-	max-width: 100%
-}
-
-/* Change styles for span on extra small screens */
-@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-}
-
-body {
-    background: url("typing-in-nature.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.welcome_strip
-{
-	text-align: center;
-	font-family: 'Nunito', sans-serif;
-	color: #00BFA5;
-  font-size: 58px;
-	margin: 0 auto;
-}
-
-</style>
-
-</head>
-
-<body class="cover">
-  <div class="container" style="padding-top:5%">
-		  <center>
-							<span class="welcome_strip"></span>
-			</center><br><br>
-      <div id="loginDiv">
-              <form id="loginForm" method="post" action="">
-              				<div class="row">
-        				 									<center>
-                        									<input type="email" id="email"
-        																	placeholder="Enter Username" name="email"
-        																	spellcheck="false" required>
-        													</center>
-        							</div> <br>
-
-                      <div class="row">
-        													<center>
-        						                				<input type="password" id="password"
-        																						placeholder="Enter Password" name="password" required>
-        													</center>
-        							</div>
-
-                      <div class="row">
-        											<center>
-        			              				<button type="submit" id="loginButton">Login</button>
-        											</center>
-        							</div>  <br>
-            </form>
-
-			       <button onclick="sign()" id="googleSignInButton">
-								Sign-in with Google
-   				   </button>
-
-
-             <button onclick="" id="facebookSignInButton">
-								Sign-in with Facebook
-   				   </button>
-
-
-
-      </div>
-      <img id="loading" src="https://www.google.com/images/spin-32.gif" style="display:none; margin:0 auto"></div>
-      <div class="row">
-							<center>
-        				<div id="loginError">
-      					</div>
-			</div>
-  </div>
-	<script src="config.js"></script>
-	<script src="login.js"></script>
-</body>
-
-</html>
+firebase.initializeApp(config);
+ </script>
+ <!-- The code below initializes the sign-in widget from FirebaseUI web. -->
+ <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
+   <script type="text/javascript">
+    var uiConfig = {
+     signInSuccessUrl: 'passages.html',
+     signInOptions: [
+      // Specify providers you want to offer your users.
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
+     ],
+     // Terms of service url can be specified and will show up in the widget.
+     tosUrl: '<your-tos-url>'
+    };
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    // The start method will wait until the DOM is loaded.
+    ui.start('#firebaseui-auth-container', uiConfig);
+ </script>
+ <!-- Include a simple background image & and title -->
+  <body>
+     <center>
+       <h1 align="center" style="color:white;">Welcome and Proceed with login</h1>
+     </center>
+        <div id="firebaseui-auth-container"></div>
+  </body>
+ </html>
