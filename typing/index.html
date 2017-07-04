@@ -31,7 +31,7 @@ firebase.initializeApp(config);
      ],
      // Terms of service url can be specified and will show up in the widget.
      tosUrl: '<your-tos-url>',
-     callbacks: {signInSuccess}
+     callbacks: {signInSuccess()}
     };
     // Initialize the FirebaseUI Widget using Firebase.
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
