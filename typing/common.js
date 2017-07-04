@@ -38,6 +38,7 @@ firebase.auth().onAuthStateChanged(function(user){
         if(user){
             //sessionStorage.email = user.email;
             console.log(user.email+' user logged in');
+            localStorage.setItem('currentUserObject', JSON.stringify(user));
         //    isRegistered(user.uid);
         }
         else{
