@@ -39,6 +39,7 @@ firebase.initializeApp(config);
     firebase.auth().onAuthStateChanged(function(user){
         if(user){
             console.log(user+' user logged in');
+            localStorage.setItem('currentUserObject', JSON.stringify(user));
             window.location = "passages.html";
         }
         else{
