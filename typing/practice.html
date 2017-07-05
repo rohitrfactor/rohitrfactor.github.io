@@ -50,6 +50,7 @@
       shiftLColor = svgDoc.getElementById('shift-left');
       shiftRColor = svgDoc.getElementById('shift-right');
       prev = svgDoc.getElementById('tilda');
+      letters = svgDoc.getElementsByClassName('st4');
       var keyMap ={
             200: {
               "id":"capslock",
@@ -735,13 +736,28 @@
       shiftLColor.style.fill = '#79bbff';
     }
     };
+
+    lowerCase = function(){
+      for(var i=0; i < letters.length; i++){
+          console.log('Letter '+letters[i].innerHTML);
+          letters[i].innerHTML = letters[i].innerHTML.toLowerCase();
+      };
+    },
+    upperCase = function(){
+      for(var i=0; i < letters.length; i++){
+          console.log('Letter '+letters[i].innerHTML);
+          letters[i].innerHTML = letters[i].innerHTML.toUpperCase();
+      };
+    },
     recommend = function(x){
                 //console.log("keycode "+x.charCodeAt(0));
                 Hands.Rhandreset();
                 Hands.Lhandreset();
+                lowerCase();
                 if(keyMap[mapping[x.charCodeAt(0)].code].hand == "left"){
                     if(mapping[x.charCodeAt(0)].shift == "yes"){
                         Hands.RhandShift();
+                        upperCase();
                     }
                     Hands.moveLhand(keyMap[mapping[x.charCodeAt(0)].code].margin);
                     svgDoc.getElementById(keyMap[mapping[x.charCodeAt(0)].code].id).style.fill = '#79bbff';
@@ -750,6 +766,7 @@
                 if(keyMap[mapping[x.charCodeAt(0)].code].hand == "right"){
                   if(mapping[x.charCodeAt(0)].shift == "yes"){
                       Hands.LhandShift();
+                      upperCase();
                   }
                     Hands.moveRhand(keyMap[mapping[x.charCodeAt(0)].code].margin);
                     svgDoc.getElementById(keyMap[mapping[x.charCodeAt(0)].code].id).style.fill = '#79bbff';
