@@ -47,6 +47,8 @@
     background-color: Transparent;
     padding: 5px;
     text-decoration: none;
+    float:center;
+    margin: 50px;
 }
 .practiceButton:focus {
   outline:0;
@@ -274,37 +276,52 @@
                     </div>
               </div>
         </div>
-        <div id="output" style="margin-top:70px">
-        		<div style="margin-top:20px">
-            			<svg id="accuracy" width="25%" height="250" style="float:left"></svg>
-            			<svg id="error" width="25%" height="250" style="float:left"></svg>
-            			<svg id="depressions" width="25%" height="250" style="float:left"></svg>
-            			<svg id="speed" width="25%" height="250" style="float:left"></svg>
+        <div id="output" style="margin-top:70px;text-align:center;margin-bottom:60px">
+          <span style="text-align:center;display:block;font-family: 'Nunito', sans-serif;font-size:35px">Result</span>
+          <div style="display:inline-block;">
+        		<div style="float:left;width:650px;padding:10px; height:320px;margin:20px;box-shadow:0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2)">
+                <svg id="accuracy" width:50%; height="250" style="float:left"></svg>
+                <svg id="error" width:50%; height="250" style="float:left"></svg>
+                <div style="display:block;font-family: 'Nunito', sans-serif;font-size:30px">
+                  <span style="float:left;width:50%;text-align:center">Accuracy</span>
+                  <span style="float:left;width:50%;text-align:center">Error</span>
+                </div>
         		</div>
-        		<div style="margin-top:10px;font-family: 'Nunito', sans-serif;font-size:30px">
-            			<span style="float:left;width:25%;text-align:center">Accuracy</span>
-            			<span style="float:left;width:25%;text-align:center">Error</span>
-            			<span style="float:left;width:25%;text-align:center">Actual Depressions</span>
-            			<span style="float:left;width:25%;text-align:center">Speed <br>(Calculated Depressions)</span>
-        		</div>
+            <div style="display:block;font-family: 'Nunito', sans-serif;font-size:22px;float:right;width:450px;padding:10px; height:320px;margin:20px;box-shadow:0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2)">
+              <span id="message"style="float:left;margin:5px; vertical-align:middle; margin-top:60px"></span>
+
+            </div>
+          </div>
+
+
             <table>
                     <tbody>
-                            <tr style="margin:30px; padding 10px;">
+                            <tr style="margin:30px;margin-bottom:10px; padding:10px;">
                                   <td>
-                                      <pre id="result" style="margin:200px; margin-top:10px; box-shadow:0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2); background-color:#FFF; font-size:20px; padding:10px; font-family:monospace; white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-o-pre-wrap;white-space:-pre-wrap;word-wrap: normal;word-break: normal; text-align:justify">
+                                      <pre id="result" style="margin:200px; margin-bottom:10px;margin-top:10px; box-shadow:0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2); background-color:#FFF; font-size:20px; padding:10px; font-family:monospace; white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-o-pre-wrap;white-space:-pre-wrap;word-wrap: normal;word-break: normal; text-align:justify">
                                         <del></del><ins></ins>
                                       </pre>
                                   </td>
                            </tr>
                     </tbody>
             </table>
-        		<center>
-                <a href="main.html">
-        			     <span class="practiceButton">
-                     Next Test
-                   </span>
-                </a>
-        		</center>
+            <div style="text-align:center; vertical-align:center; margin:0 auto">
+              <a href="passages.html">
+                 <span class="practiceButton">
+                   Go to another passage
+                 </span>
+              </a>
+              <a href="practice.html">
+                 <span class="practiceButton">
+                   Practice same passage
+                 </span>
+              </a>
+              <a href="typing.html">
+                 <span class="practiceButton">
+                   Retry Again
+                 </span>
+              </a>
+            </div>
         </div>
 </body>
 

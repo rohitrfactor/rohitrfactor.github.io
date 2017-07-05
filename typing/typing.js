@@ -13,8 +13,11 @@ var model = {
                     var diff = JsDiff["diffWords"](original, typing);
 
                     var submittedWords = typing.split(" ");
+                    var originalWords = original.split(" ");
+                    var totalWordCount = originalWords.length;
                   	var wordCount = submittedWords.length;
-                    console.log("Total words : "+wordCount);
+                    console.log("Total words written : "+wordCount);
+                    console.log("Total words in passage : "+totalWordCount);
 
                     var timetaken = totalTime-clock.getTime().time;
 
@@ -58,6 +61,8 @@ var model = {
                     console.log("Extra words count : "+insCount);
                     console.log("Correct Components : "+normalCount);
                     presenter.updateResult(errorCount,insCount,normalCount,fragment,depressions,speed,wordsPerMinute);
+                    var etime = Math.ceil((timetaken/wordCount)*totalWordCount);
+                    presenter.updateMessage(Math.ceil(timetaken/60),timetaken%60,wordCount,normalCount,Math.ceil(wordsPerMinute),Math.ceil(etime/60),etime%60);
             },
 
 
@@ -101,8 +106,8 @@ var presenter = {
 
                    console.log("Error Percentage : "+((errorCount+insCount)/(errorCount+insCount+normalCount))*100);
                    console.log("Accuracy : "+((normalCount)/(errorCount+insCount+normalCount))*100);
-                   view.updateResult(accuracy,error,fragment,depressions,speed);
-				           model.saveResult(accuracy.toFixed(2),error.toFixed(2),depressions,speed,wordsPerMinute);
+                   view.updateResult(accuracy,error,fragment,wordsPerMinute,speed);
+				           //model.saveResult(accuracy.toFixed(2),error.toFixed(2),depressions,speed,wordsPerMinute);
     },
     logout : function(){
                     logout();
@@ -113,6 +118,25 @@ var presenter = {
     },
     saveResultSuccess : function(){
                     console.log("Data saved sueecssfully");
+    },
+    updateMessage : function(uminutes,useconds,uwords,correctWords,wpm,eminutes,eseconds){
+            var message = "\u00a0You took\u00a0";
+            message = message = message.concat(uminutes);
+            message = message.concat("\u00a0minutes\u00a0");
+            message = message.concat(useconds);
+            message = message.concat("\u00a0seconds to write\u00a0")
+            message = message.concat(uwords);
+            message = message.concat("\u00a0words, out of which\u00a0");
+            message = message.concat(correctWords);
+            message = message.concat("\u00a0are correct. Your typing speed is\u00a0");
+            message = message.concat(wpm);
+            message = message.concat("\u00a0words per minute. You can write the complete passage in\u00a0");
+            message = message.concat(eminutes);
+            message = message.concat("\u00a0minutes\u00a0");
+            message = message.concat(eseconds);
+            message = message.concat("\u00a0seconds. Please see the complete evaluated sheet below.");
+            console.log("Final string "+message);
+            view.updateMessage(message);
     }
 };
 var view = {
@@ -143,27 +167,9 @@ var view = {
           errorGaugeConfig.waveHeight = 0.15;
           errorGauge = loadLiquidFillGauge("error", 0, errorGaugeConfig);
 
-      var depressionsGaugeConfig = liquidFillGaugeDefaultSettings();
-          depressionsGaugeConfig.circleColor = "##0277BD";
-          depressionsGaugeConfig.textColor = "#0277BD";
-          depressionsGaugeConfig.waveTextColor = "#40C4FF";
-          depressionsGaugeConfig.waveColor = "#0277BD";
-          depressionsGaugeConfig.waveAnimateTime = 2000;
-          depressionsGaugeConfig.waveCount = 1;
-          depressionsGaugeConfig.waveHeight = 0.15;
-          depressionsGaugeConfig.displayPercent = false;
-          depressionsGauge = loadLiquidFillGauge("depressions", 0, depressionsGaugeConfig);
 
-      var speedGaugeConfig = liquidFillGaugeDefaultSettings();
-          speedGaugeConfig.circleColor = "#00695C";
-          speedGaugeConfig.textColor = "#00695C";
-          speedGaugeConfig.waveTextColor = "#64FFDA";
-          speedGaugeConfig.waveColor = "#00695C";
-          speedGaugeConfig.waveAnimateTime = 2000;
-          speedGaugeConfig.waveCount = 1;
-          speedGaugeConfig.waveHeight = 0.15;
-          speedGaugeConfig.displayPercent = false;
-          speedGauge = loadLiquidFillGauge("speed", 0, speedGaugeConfig);
+
+
 
 
       headerUserElem = document.getElementById('user_email');
@@ -203,7 +209,7 @@ var view = {
                   document.getElementById("submitTest").disabled = true;
                   console.log("Elapsed Time "+(totalTime-clock.getTime().time)+" seconds");
                   console.log("Depressions : "+typing.textContent.length);
-                  depressionsGauge.update();
+
                   var depressions = typing.textContent.length;
                   var speed = Math.ceil((typing.textContent.length/(totalTime-clock.getTime().time))*totalTime);
                   presenter.calculateResult(typing.textContent,original.textContent,depressions,speed);
@@ -218,10 +224,12 @@ var view = {
                   console.log('Speed : '+speed);
                   accuracyGauge.update(accuracy);
                   errorGauge.update(error);
-                  depressionsGauge.update(depressions);
-                  speedGauge.update(speed);
                   result.textContent = '';
                   result.appendChild(fragment);
+    },
+    updateMessage : function(message){
+                  var messag = document.getElementById('message');
+                  messag.innerText = message;
     },
     startTest : function(){
               if(!isTestStarted){
